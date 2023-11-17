@@ -10,7 +10,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderByDesc('id')->paginate(5);
+        $projects = Project::orderByDesc('id')->paginate(3);
         return response()->json([
             'status' => 'success',
             'author' => 'gianluca',
