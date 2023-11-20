@@ -39,7 +39,6 @@ class ProjectController extends Controller
     public function latest()
     {
         $projects = Project::orderByDesc('id')->take(3)->get();
-        dd($projects);
         return response()->json([
             'status' => 'success',
             'author' => 'gianluca',
