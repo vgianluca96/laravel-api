@@ -10,7 +10,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderByDesc('id')->paginate(3);
+        $projects = Project::orderByDesc('id')->paginate(4);
         return response()->json([
             'status' => 'success',
             'author' => 'gianluca',
@@ -34,5 +34,16 @@ class ProjectController extends Controller
                 'result' => 'Oops! This project does not exist'
             ]);
         }
+    }
+
+    public function latest()
+    {
+        $projects = Project::orderByDesc('id')->take(3)->get();
+        dd($projects);
+        return response()->json([
+            'status' => 'success',
+            'author' => 'gianluca',
+            'result' => $projects
+        ]);
     }
 }
