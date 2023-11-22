@@ -13,7 +13,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $technologies = Technology::all();
+        $technologies = Technology::with('projects')->get();
         return response()->json([
             'status' => 'success',
             'author' => 'gianluca',
